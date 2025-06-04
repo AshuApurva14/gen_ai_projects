@@ -2,7 +2,11 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph.graph import StateGraph, END
 from typing import TypedDict, Annotated, List
 import operator
+import getpass
+import os
 
+if "GOOGLE_API_KEY" not in os.environ:
+    os.environ["GOOGLE_API_KEY"] = getpass.getpass("Enter your Google AI API key: ")
 
 emails = """
 1. Subject: Standup Call at 10 AM
